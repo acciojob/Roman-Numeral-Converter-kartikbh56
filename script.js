@@ -1,5 +1,5 @@
 function convertToRoman(num) {
-	 const map = {
+    const map = {
         1000: "M",
         900: "CM",
         500: "D",
@@ -15,20 +15,20 @@ function convertToRoman(num) {
         1: "I"
     };
 
-  //your code here
-	let res = ""
-	for([key, value] of Object.entries(map)){
-		while(num >= value){
-			num = num - value
-			res += value
-		}
-	}
+    let res = "";
 
-	return res
+    const keys = Object.keys(map).map(Number).sort((a, b) => b - a); // sort descending
 
-	
+    for (let key of keys) {
+        while (num >= key) {
+            num -= key;
+            res += map[key];
+        }
+    }
 
+    return res;
 }
+
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
 
 
